@@ -1,7 +1,7 @@
 from datetime import datetime
 import requests
 import json
-from utilits.creds import TOKEN_USER
+from creds import TOKEN_USER
 
 def get_posts(domain, date_start, date_end=int(datetime.now().timestamp()), token=TOKEN_USER, version=5.199, COUNT=100):
     posts = []
@@ -83,7 +83,7 @@ def get_comments(posts, token=TOKEN_USER, version=5.199, COUNT=100):
             offset += COUNT
     return comments
 
-
+#Передается список доменов групп в ВК
 def get_all_comments(domains, date_start=int(datetime(2024, 1, 1, 0, 0).timestamp())):
     all_comments = {}
     for domain in domains:
